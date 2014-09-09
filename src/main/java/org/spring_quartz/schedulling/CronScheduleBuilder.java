@@ -1,4 +1,4 @@
-package org.opensource.schedulling;
+package org.spring_quartz.schedulling;
 
 import org.quartz.CronExpression;
 import org.quartz.ScheduleBuilder;

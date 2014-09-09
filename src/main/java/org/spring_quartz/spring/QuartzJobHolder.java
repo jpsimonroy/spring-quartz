@@ -1,7 +1,7 @@
-package org.opensource.spring;
+package org.spring_quartz.spring;
 
 
-import org.opensource.schedulling.QuartzScheduleBuilder;
+import org.spring_quartz.schedulling.QuartzScheduleBuilder;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;

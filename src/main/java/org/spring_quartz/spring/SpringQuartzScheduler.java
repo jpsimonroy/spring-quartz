@@ -1,4 +1,4 @@
-package org.opensource.spring;
+package org.spring_quartz.spring;
 
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
