@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="sayHi" class="examples.ISayHiEvery10Seconds">
+        <property name="times" value="5"/>
+    </bean>
+
+    <bean id="customScheduler" class="org.spring_quartz.spring.SpringQuartzScheduler">
+        <property name="jobSchedule">
+            <list>
+                <map key-type="java.lang.String" value-type="org.quartz.Job">
+                    <entry key="jobHolder" value-ref="sampleJob"/>
+                </map>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="sampleJob" class="org.spring_quartz.spring.QuartzJobHolder">
+        <property name="jobDataMap">
+            <bean class="org.quartz.JobDataMap">
+                <constructor-arg>
+                    <map>
+                        <entry key="job" value-ref="sayHi"/>
+                    </map>
+                </constructor-arg>
+            </bean>
+        </property>
+        <property name="scheduleBuilder">
+            <bean class="org.spring_quartz.schedulling.CronScheduleBuilder">
+                <property name="schedule" value="0/5 * * * * ?"/>
+            </bean>
+        </property>
+    </bean>
+</beans>
